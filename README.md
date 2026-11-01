@@ -1,22 +1,21 @@
-# Book Club API tests (GET clubs)
+# Book Club API tests
 
-Автотесты на `GET /api/v1/clubs/` для [Book Club API](https://book-club.qa.guru/api/v1/docs/swagger/#/clubs/clubsList).
+Автотесты Book Club API: https://book-club.qa.guru/api/v1/docs/swagger/
 
-Стек: Python, Pytest, Requests, JSON Schema.
+## Покрытие
 
-## Установка и запуск
+| Файл | Что проверяет |
+|------|---------------|
+| `tests/test_get_clubs.py` | GET список клубов, поиск, пагинация, JSON Schema |
+| `tests/test_register.py` | Регистрация |
+| `tests/test_auth.py` | Авторизация (позитив + негативы) |
+| `tests/test_club_crud.py` | CRUD клуба |
+
+## Запуск
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-pytest -q
+pytest
 ```
-
-## Покрытие
-
-1. Список клубов возвращает 200 и непустой `results`
-2. Ответ соответствует JSON Schema
-3. У первого клуба есть title/authors/members
-4. Поиск по существующему `bookTitle` находит клуб
-5. Пагинация `page_size=2` возвращает 2 элемента
